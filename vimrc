@@ -9,5 +9,8 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+call pathogen#infect()
+call pathogen#helptags()
+
 autocmd FileType make setlocal noexpandtab
 
