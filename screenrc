@@ -1,4 +1,5 @@
 escape ^Aa
+altscreen on
 autodetach on
 shell /bin/bash
 startup_message off
