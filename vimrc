@@ -4,6 +4,9 @@ set nocompatible
 set t_Co=256
 colo wombat
 
+set ttyfast
+set mouse=a
+
 syntax on
 filetype indent on
 filetype plugin on
