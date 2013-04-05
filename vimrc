@@ -43,7 +43,7 @@ autocmd VimEnter * call StartNERDTree()
 map <C-n> :NERDTreeToggle<CR>
 
 map <C-t> :TMiniBufExplorer<CR>
-let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavVim=1
 
 set tags=./tags;/
 
@@ -52,3 +52,5 @@ set pumheight=15
 let g:SuperTabDefaultCompletionType="context"
 let g:clang_complete_copen=1
 
+" Fix protodef
+let g:protodefprotogetter=expand("<sfile>:p:h")."/.vim/bundle/ProtoDef/pullproto.pl"
