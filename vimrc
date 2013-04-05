@@ -52,6 +52,8 @@ set pumheight=15
 let g:SuperTabDefaultCompletionType="context"
 let g:clang_complete_copen=1
 
+nmap <buffer> <silent> <leader>FS :FSSplitRight<cr>
+
 " Fix protodef
 let g:protodefprotogetter=expand("<sfile>:p:h")."/.vim/bundle/ProtoDef/pullproto.pl"
 let g:disable_protodef_sorting=1
