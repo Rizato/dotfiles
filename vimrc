@@ -26,7 +26,8 @@ autocmd FileType make setlocal noexpandtab
 call pathogen#infect()
 call pathogen#helptags()
 
-" Start NERDTree automatically, focus main window if file was passed on command line
+" Start NERDTree automatically, focus main window if file was passed on the
+" command line
 function! StartNERDTree()
     NERDTree
     if 0 != argc()

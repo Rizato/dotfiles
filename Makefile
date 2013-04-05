@@ -16,13 +16,13 @@ link:
 	@$(foreach file, $(DOTFILES), ln -snfT $(CURDIR)/$(file) $(HOME)/.$(file); )
 
 patch:
-	quilt push -a
+	@quilt push -a
 
 unpatch:
-	quilt pop -a
+	@quilt pop -a
 
 genpatches:
-	git submodule foreach '\
+	@git submodule foreach '\
 		patch=$(CURDIR)/`basename $$name`.patch; \
 		git diff | sed -re "s#([a|b])/#\1/$$path/#" > $$patch; \
 		git reset --hard; \
