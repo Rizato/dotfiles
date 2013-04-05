@@ -1,5 +1,6 @@
 set nocompatible
 
+" Color detection on my terminal doesn't seem to work
 set t_Co=256
 colo wombat
 
@@ -16,12 +17,23 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+set textwidth=80
+autocmd FileType markdown,plaintex,text set formatoptions+=t
+
+" Make needs hard tabs
 autocmd FileType make setlocal noexpandtab
 
 call pathogen#infect()
 call pathogen#helptags()
 
-autocmd vimenter * NERDTree | wincmd p
+" Start NERDTree automatically, focus main window if file was passed on command line
+function! StartNERDTree()
+    NERDTree
+    if 0 != argc()
+        wincmd p
+    end    
+endfunction
+autocmd VimEnter * call StartNERDTree()
 map <C-n> :NERDTreeToggle<CR>
 
 map <C-t> :TMiniBufExplorer<CR>
