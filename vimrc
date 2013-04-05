@@ -47,7 +47,8 @@ map <C-n> :NERDTreeToggle<CR>
 
 map <C-t> :TMiniBufExplorer<CR>
 let g:miniBufExplMapWindowNavVim=1
-let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplUseSingleClick=1
+let g:miniBufExplModSelTarget = 1
 
 set tags=./tags;/
 
