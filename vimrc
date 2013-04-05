@@ -23,6 +23,8 @@ autocmd FileType markdown,plaintex,text set formatoptions+=t
 set wildmenu
 set wildmode=list:longest
 
+set number
+
 " Make needs hard tabs
 autocmd FileType make setlocal noexpandtab
 
