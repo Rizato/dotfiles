@@ -20,6 +20,9 @@ set shiftwidth=4
 set textwidth=80
 autocmd FileType markdown,plaintex,text set formatoptions+=t
 
+set wildmenu
+set wildmode=list:longest
+
 " Make needs hard tabs
 autocmd FileType make setlocal noexpandtab
 

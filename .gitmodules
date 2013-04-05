@@ -31,3 +31,9 @@
 [submodule "vim/bundle/haskellmode-vim"]
 	path = vim/bundle/haskellmode-vim
 	url = git://github.com/lukerandall/haskellmode-vim.git
+[submodule "vim/bundle/ProtoDef"]
+	path = vim/bundle/ProtoDef
+	url = git://github.com/vim-scripts/ProtoDef.git
+[submodule "vim/bundle/vim-fswitch"]
+	path = vim/bundle/vim-fswitch
+	url = git://github.com/derekwyatt/vim-fswitch.git
