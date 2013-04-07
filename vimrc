@@ -21,6 +21,7 @@ set softtabstop=4
 set shiftwidth=4
 
 set textwidth=80
+set formatoptions-=t
 autocmd FileType markdown,plaintex,text set formatoptions+=t
 
 set wildmenu
