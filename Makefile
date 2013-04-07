@@ -1,11 +1,16 @@
-ifneq (,)
-	This makefile requires GNU Make.
-endif
+#ifneq (,)
+#	This makefile requires GNU Make.
+#endif
 
 IGNORE = Makefile README.md patches
 DOTFILES := $(filter-out $(IGNORE), $(wildcard *))
 
-.PHONY: install 
+.PHONY: help install uninstall link patch unpatch genpatches
+
+help:
+	@echo 'Run make install to install symlinks into your home directory.' \
+		'This will replace any existing dotfiles that conflict with the' \
+		'files in this directory.'
 
 install: | patch link unpatch
 
