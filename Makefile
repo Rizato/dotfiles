@@ -1,6 +1,6 @@
-#ifneq (,)
-#	This makefile requires GNU Make.
-#endif
+ifneq (,)
+	This makefile requires GNU Make.
+endif
 
 IGNORE = Makefile README.md patches
 DOTFILES := $(filter-out $(IGNORE), $(wildcard *))
