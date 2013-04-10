@@ -49,7 +49,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-t> :TMiniBufExplorer<CR>
 let g:miniBufExplMapWindowNavVim=1
 let g:miniBufExplUseSingleClick=1
-let g:miniBufExplModSelTarget = 1
+let g:miniBufExplModSelTarget=1
 
 set tags=./tags;/
 
@@ -64,3 +64,12 @@ nmap <buffer> <silent> <leader>FS :FSSplitRight<cr>
 let g:protodefprotogetter=expand("<sfile>:p:h")."/.vim/bundle/ProtoDef/pullproto.pl"
 let g:disable_protodef_sorting=1
 
+" Code complete template defs
+let g:template={}
+let g:template['c']={}
+let g:template['c']['de']="#define "
+let g:template['c']['in']="#include \"\"\<left>"
+let g:template['c']['is']="#include <>\<left>"
+let g:template['c']['ff']="#ifndef \<c-r>=GetFileName()_\<cr>\<CR>#define \<c-r>=GetFileName()_\<cr>".
+            \repeat("\<cr>",4)."#endif /* \<c-r>=GetFileName()_\<cr> */".repeat("\<up>",2)
+ 
