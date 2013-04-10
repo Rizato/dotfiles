@@ -11,6 +11,11 @@ corresponding `make uninstall` is included which will remove the files in this
 repository from your home directory if they are symlinks. Backups of the
 original files are not currently maintained.
 
+## Vim Plugins
+
+Vim plugins are managed by [Vundle](https://github.com/gmarik/vundle). Follow
+instructions on the Vundle page to install.
+
 ## Credits
 
 Wombat color scheme: https://dengmao.wordpress.com/2007/01/22/vim-color-scheme-wombat/
