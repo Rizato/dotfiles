@@ -8,7 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'scrooloose/nerdtree'
-Bundle 'fholgado/minibufexpl'
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'mbbill/code_complete'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'ervandew/supertab'
