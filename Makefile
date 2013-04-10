@@ -2,7 +2,7 @@ ifneq (,)
 	This makefile requires GNU Make.
 endif
 
-IGNORE = Makefile README.md patches
+IGNORE = Makefile README.md
 DOTFILES := $(filter-out $(IGNORE), $(wildcard *))
 
 .PHONY: help install uninstall
