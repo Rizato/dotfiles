@@ -9,23 +9,21 @@ Bundle 'gmarik/vundle'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'mbbill/code_complete'
-Bundle 'Rip-Rip/clang_complete'
+Bundle 'tpope/vim-fugitive'
 Bundle 'ervandew/supertab'
+Bundle 'Rip-Rip/clang_complete'
 Bundle 'tpope/vim-markdown'
 Bundle 'Shougo/vimproc'
 Bundle 'eagletmt/ghcmod-vim'
-Bundle 'scrooloose/syntastic'
 Bundle 'lukerandall/haskellmode-vim'
-Bundle 'vim-scripts/ProtoDef'
+Bundle 'scrooloose/syntastic'
 Bundle 'derekwyatt/vim-fswitch'
-Bundle 'tpope/vim-fugitive'
+Bundle 'derekwyatt/vim-protodef'
+Bundle 'SirVer/ultisnips'
 
 filetype plugin indent on
 
-" Color detection on my terminal doesn't seem to work
-set t_Co=256
-colo wombat
+colo wombat256i
 
 set ttyfast
 set mouse=a
@@ -82,12 +80,3 @@ nmap <buffer> <silent> <leader>FS :FSSplitRight<cr>
 let g:protodefprotogetter=expand("<sfile>:p:h")."/.vim/bundle/ProtoDef/pullproto.pl"
 let g:disable_protodef_sorting=1
 
-" Code complete template defs
-let g:template={}
-let g:template['c']={}
-let g:template['c']['de']="#define "
-let g:template['c']['in']="#include \"\"\<left>"
-let g:template['c']['is']="#include <>\<left>"
-let g:template['c']['ff']="#ifndef \<c-r>=GetFileName()_\<cr>\<CR>#define \<c-r>=GetFileName()_\<cr>".
-            \repeat("\<cr>",4)."#endif /* \<c-r>=GetFileName()_\<cr> */".repeat("\<up>",2)
- 
