@@ -7,29 +7,21 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'dsolstad/vim-wombat256i'
 Bundle 'scrooloose/nerdtree'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'ervandew/supertab'
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'tpope/vim-markdown'
-Bundle 'Shougo/vimproc'
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'derekwyatt/vim-fswitch'
-Bundle 'derekwyatt/vim-protodef'
-Bundle 'SirVer/ultisnips'
+Bundle 'pangloss/vim-javascript'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'heartsentwined/vim-emblem'
+Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
 
 colo wombat256i
 
-set ttyfast
-set mouse=a
-
 syntax on
-set ofu=syntaxcomplete#Complete
 
 set hlsearch
 set incsearch
@@ -41,26 +33,25 @@ set shiftwidth=4
 
 set textwidth=80
 set formatoptions-=t
-autocmd FileType markdown,plaintex,text set formatoptions+=t
+autocmd FileType markdown,plaintex,text setl fo+=t
 
 set wildmenu
 set wildmode=list:longest
 
 set number
 
-" Make needs hard tabs
-autocmd FileType make setlocal noexpandtab
+" make needs hard tabs
+autocmd FileType make setl noet
 
-" Start NERDTree automatically, focus main window if file was passed on the
-" command line
-function! StartNERDTree()
-    NERDTree
-    if 0 != argc()
-        wincmd p
-    end    
-endfunction
-autocmd VimEnter * call StartNERDTree()
-map <C-n> :NERDTreeToggle<CR>
+" golang options
+autocmd FileType go setl noet
+autocmd FileType go autocmd BufWritePre <buffer> silent Fmt
+let go_highlight_trailing_whitespace_error=0
+
+" javascript options
+autocmd FileType javascript setl ts=2 sts=2 sw=2
+autocmd FileType coffee setl ts=2 sts=2 sw=2
+hi link coffeeSpaceError NONE
 
 map <C-t> :TMiniBufExplorer<CR>
 let g:miniBufExplMapWindowNavVim=1
@@ -68,15 +59,4 @@ let g:miniBufExplUseSingleClick=1
 let g:miniBufExplModSelTarget=1
 
 set tags=./tags;/
-
-set completeopt=menu,menuone,longest
-set pumheight=15
-let g:SuperTabDefaultCompletionType="context"
-let g:clang_complete_copen=1
-
-nmap <buffer> <silent> <leader>FS :FSSplitRight<cr>
-
-" Fix protodef
-let g:protodefprotogetter=expand("<sfile>:p:h")."/.vim/bundle/ProtoDef/pullproto.pl"
-let g:disable_protodef_sorting=1
 
