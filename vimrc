@@ -49,6 +49,7 @@ autocmd FileType go autocmd BufWritePre <buffer> silent Fmt
 let go_highlight_trailing_whitespace_error=0
 
 " javascript options
+autocmd FileType html setl ts=2 sts=2 sw=2
 autocmd FileType javascript setl ts=2 sts=2 sw=2
 autocmd FileType coffee setl ts=2 sts=2 sw=2
 hi link coffeeSpaceError NONE
