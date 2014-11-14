@@ -10,6 +10,8 @@ Bundle 'gmarik/vundle'
 Bundle 'dsolstad/vim-wombat256i'
 Bundle 'scrooloose/nerdtree'
 Bundle 'fholgado/minibufexpl.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-markdown'
 Bundle 'pangloss/vim-javascript'
 Bundle 'derekwyatt/vim-scala'
@@ -39,6 +41,11 @@ set wildmenu
 set wildmode=list:longest
 
 set number
+
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " make needs hard tabs
 autocmd FileType make setl noet
