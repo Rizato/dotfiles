@@ -18,6 +18,7 @@ Bundle 'derekwyatt/vim-scala'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'heartsentwined/vim-emblem'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'wting/rust.vim'
 
 filetype plugin indent on
 
@@ -60,6 +61,7 @@ autocmd FileType html setl ts=2 sts=2 sw=2
 autocmd FileType javascript setl ts=2 sts=2 sw=2
 autocmd FileType coffee setl ts=2 sts=2 sw=2
 hi link coffeeSpaceError NONE
+nnoremap <leader>cc :CoffeeCompile %<CR>
 
 map <C-t> :TMiniBufExplorer<CR>
 let g:miniBufExplMapWindowNavVim=1
