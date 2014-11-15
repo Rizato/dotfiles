@@ -2,31 +2,39 @@ set nocompatible
 
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'dsolstad/vim-wombat256i'
-Bundle 'scrooloose/nerdtree'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-markdown'
-Bundle 'pangloss/vim-javascript'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'heartsentwined/vim-emblem'
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'dsolstad/vim-wombat256i'
+Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+Plugin 'wting/rust.vim'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'heartsentwined/vim-emblem'
+Plugin 'kchmck/vim-coffee-script'
 
-filetype plugin indent on
-
-colo wombat256i
+call vundle#end()
 
 syntax on
+filetype plugin indent on
+
+set t_Co=256
+"let g:molokai_original=1
+"let g:rehash256=1
+"colo molokai
+"hi Normal ctermbg=none
+colo wombat256i
 
 set hlsearch
 set incsearch
+set cursorline
 
 set expandtab
 set tabstop=4
@@ -42,10 +50,13 @@ set wildmode=list:longest
 
 set number
 
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+set hidden
+nnoremap <silent> <Right> :bnext<CR>
+nnoremap <silent> <Left> :bprev<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
 
 " make needs hard tabs
 autocmd FileType make setl noet
@@ -61,10 +72,13 @@ autocmd FileType javascript setl ts=2 sts=2 sw=2
 autocmd FileType coffee setl ts=2 sts=2 sw=2
 hi link coffeeSpaceError NONE
 
-map <C-t> :TMiniBufExplorer<CR>
-let g:miniBufExplMapWindowNavVim=1
-let g:miniBufExplUseSingleClick=1
-let g:miniBufExplModSelTarget=1
+" nerdtree options
+noremap <C-n> :NERDTreeToggle<CR>
+
+" easymotion options
+noremap <Leader> <Plug>(easymotion-prefix)
+
+" airline options
 
 set tags=./tags;/
 
