@@ -26,10 +26,6 @@ syntax on
 filetype plugin indent on
 
 set t_Co=256
-"let g:molokai_original=1
-"let g:rehash256=1
-"colo molokai
-"hi Normal ctermbg=none
 colo wombat256i
 
 set hlsearch
@@ -71,6 +67,7 @@ autocmd FileType html setl ts=2 sts=2 sw=2
 autocmd FileType javascript setl ts=2 sts=2 sw=2
 autocmd FileType coffee setl ts=2 sts=2 sw=2
 hi link coffeeSpaceError NONE
+nnoremap <leader>cc :CoffeeCompile %<CR>
 
 " nerdtree options
 noremap <C-n> :NERDTreeToggle<CR>
