@@ -73,7 +73,7 @@ nnoremap <leader>cc :CoffeeCompile %<CR>
 noremap <C-n> :NERDTreeToggle<CR>
 
 " easymotion options
-noremap <Leader> <Plug>(easymotion-prefix)
+nmap <Leader> <Plug>(easymotion-prefix)
 
 " airline options
 
