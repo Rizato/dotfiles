@@ -41,8 +41,7 @@ set shiftwidth=4
 
 set textwidth=80
 set formatoptions-=t
-autocmd FileType markdown,tex,text setl fo+=t
-autocmd FileType markdown,tex,text setl spell
+autocmd FileType markdown,tex,text setl spell nowrap fo+=t
 
 set wildmenu
 set wildmode=list:longest
@@ -61,9 +60,7 @@ nnoremap <silent> <C-l> :wincmd l<CR>
 autocmd FileType make setl noet
 
 " javascript options
-autocmd FileType html setl ts=2 sts=2 sw=2
-autocmd FileType javascript setl ts=2 sts=2 sw=2
-autocmd FileType coffee setl ts=2 sts=2 sw=2
+autocmd FileType html,javascript,coffee setl ts=2 sts=2 sw=2
 hi link coffeeSpaceError NONE
 nnoremap <leader>cc :CoffeeCompile %<CR>
 
