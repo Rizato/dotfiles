@@ -1,31 +1,25 @@
-set nocompatible
-
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-Plugin 'gmarik/vundle'
-
-Plugin 'dsolstad/vim-wombat256i'
-Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'JazzCore/ctrlp-cmatcher'
-Plugin 'tpope/vim-markdown'
-Plugin 'pangloss/vim-javascript'
-Plugin 'wting/rust.vim'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'heartsentwined/vim-emblem'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'lervag/vim-latex'
-
-call vundle#end()
+call plug#begin()
+Plug 'dsolstad/vim-wombat256i'
+Plug 'bling/vim-airline'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'JazzCore/ctrlp-cmatcher'
+Plug 'embear/vim-localvimrc'
+Plug 'tpope/vim-markdown'
+Plug 'pangloss/vim-javascript'
+Plug 'wting/rust.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'jnwhiteh/vim-golang'
+Plug 'heartsentwined/vim-emblem'
+Plug 'kchmck/vim-coffee-script'
+Plug 'lervag/vim-latex'
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
 
 syntax on
 filetype plugin indent on
+set cino=N-s
 
 set t_Co=256
 colo wombat256i
@@ -92,6 +86,10 @@ let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 let g:ctrlp_match_func={'match' : 'matcher#cmatch' }
 let g:ctrlp_max_files=0
+
+" localvimrc options, sandbox doesn't seem to work
+let g:localvimrc_sandbox=0
+let g:localvimrc_persistent=1
 
 set tags=./tags;/
 

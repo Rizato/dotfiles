@@ -5,15 +5,23 @@ endif
 IGNORE = Makefile README.md
 DOTFILES := $(filter-out $(IGNORE), $(wildcard *))
 
-.PHONY: help install uninstall
+.PHONY: help install install dotfiles vim uninstall
 
 help:
 	@echo 'Run make install to install symlinks into your home directory.' \
 		'This will replace any existing dotfiles that conflict with the' \
 		'files in this directory.'
 
-install:
+install: dotfiles vim
+
+dotfiles:
 	@$(foreach file, $(DOTFILES), ln -snfT $(CURDIR)/$(file) $(HOME)/.$(file); )
+
+vim:
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	# Hack, ignore error about missing colorscheme
+	echo | vim +PlugInstall +qa!
 
 uninstall:
 	@$(foreach file, $(DOTFILES), if [ -L $(HOME)/.$(file) ]; then rm $(HOME)/.$(file); fi; )
