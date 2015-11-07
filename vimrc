@@ -15,6 +15,7 @@ Plug 'heartsentwined/vim-emblem'
 Plug 'kchmck/vim-coffee-script'
 Plug 'lervag/vim-latex'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'bogado/file-line'
 call plug#end()
 
 syntax on
@@ -23,6 +24,9 @@ set cino=N-s
 
 set t_Co=256
 colo wombat256i
+hi TabLine guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+hi TabLineSel guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
+hi TabLineFill guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
 
 set hlsearch
 set incsearch
@@ -49,6 +53,12 @@ nnoremap <silent> <C-k> :wincmd k<CR>
 nnoremap <silent> <C-j> :wincmd j<CR>
 nnoremap <silent> <C-h> :wincmd h<CR>
 nnoremap <silent> <C-l> :wincmd l<CR>
+nnoremap <silent> th :tabfirst<CR>
+nnoremap <silent> tj :tabnext<CR>
+nnoremap <silent> tk :tabprev<CR>
+nnoremap <silent> tl :tablast<CR>
+nnoremap <silent> tn :tabnew<CR>
+nnoremap <silent> td :tabclose<CR>
 
 " make needs hard tabs
 autocmd FileType make setl noet
