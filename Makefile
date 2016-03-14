@@ -24,8 +24,8 @@ vim:
 	echo | vim +PlugInstall +qa!
 
 fonts:
-	git clone https://github.com/powerline/fonts.git powerline-fonts
-	./powerline-fonts/install.sh
+	git clone https://github.com/powerline/fonts.git fonts
+	./fonts/install.sh
 
 uninstall:
 	@$(foreach file, $(DOTFILES), if [ -L $(HOME)/.$(file) ]; then rm $(HOME)/.$(file); fi; )
