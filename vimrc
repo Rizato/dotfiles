@@ -16,6 +16,11 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'lervag/vim-latex'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bogado/file-line'
+Plug 'Chiel92/vim-autoformat'
+Plug 'cespare/vim-toml'
+Plug 'nono/vim-handlebars'
+Plug 'rhysd/vim-clang-format'
+Plug 'cstrahan/vim-capnp'
 call plug#end()
 
 syntax on
@@ -47,38 +52,45 @@ set wildmode=list:longest
 set number
 
 set hidden
-nnoremap <silent> <Right> :bnext<CR>
-nnoremap <silent> <Left> :bprev<CR>
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
-nnoremap <silent> th :tabfirst<CR>
-nnoremap <silent> tj :tabnext<CR>
-nnoremap <silent> tk :tabprev<CR>
-nnoremap <silent> tl :tablast<CR>
-nnoremap <silent> tn :tabnew<CR>
-nnoremap <silent> td :tabclose<CR>
+nnoremap <silent> <Right> :bnext<cr>
+nnoremap <silent> <Left> :bprev<cr>
+nnoremap <silent> <C-k> :wincmd k<cr>
+nnoremap <silent> <C-j> :wincmd j<cr>
+nnoremap <silent> <C-h> :wincmd h<cr>
+nnoremap <silent> <C-l> :wincmd l<cr>
+nnoremap <silent> th :tabfirst<cr>
+nnoremap <silent> tj :tabnext<cr>
+nnoremap <silent> tk :tabprev<cr>
+nnoremap <silent> tl :tablast<cr>
+nnoremap <silent> tn :tabnew<cr>
+nnoremap <silent> td :tabclose<cr>
+
+nnoremap <leader>f :Autoformat<cr>
 
 " make needs hard tabs
 autocmd FileType make setl noet
 
 " javascript options
-autocmd FileType html,javascript,coffee setl ts=2 sts=2 sw=2
+autocmd FileType html,javascript,coffee,handlebars.html setl ts=2 sts=2 sw=2
 hi link coffeeSpaceError NONE
-nnoremap <leader>cc :CoffeeCompile %<CR>
+nnoremap <leader>cc :CoffeeCompile %<cr>
 
 " golang options
 autocmd FileType go setl noet
 autocmd FileType go autocmd BufWritePre <buffer> silent Fmt
 let go_highlight_trailing_whitespace_error=0
 
+" rust options
+let g:formatdef_rustfmt = '"rustfmt"'
+let g:formatters_rust = ['rustfmt']
+"autocmd FileType rust autocmd BufWritePre <buffer> silent :Autoformat
+
 " latex options
 let g:tex_flavor="latex"
 autocmd FileType tex normal zR
 
 " nerdtree options
-noremap <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<cr>
 
 " easymotion options
 nmap <Leader> <Plug>(easymotion-prefix)
@@ -100,6 +112,18 @@ let g:ctrlp_max_files=0
 " localvimrc options, sandbox doesn't seem to work
 let g:localvimrc_sandbox=0
 let g:localvimrc_persistent=1
+
+let g:clang_format#style_options = {
+    \ "Standard": "C++11",
+    \ "BasedOnStyle": "Webkit",
+    \ "AllowShortFunctionsOnASingleLine": "Empty",
+    \ "AlwaysBreakTemplateDeclarations": "true",
+    \ "BreakBeforeTernaryOperators": "false",
+    \ "ColumnLimit": 120,
+    \ "ConstructorInitializerIndentWidth": 2,
+    \ "NamespaceIndentation": "None"}
+
+autocmd FileType c,cpp,objc nnoremap <buffer><leader>cf :<C-u>ClangFormat<cr>
 
 set tags=./tags;/
 
