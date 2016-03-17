@@ -25,7 +25,7 @@ vim:
 
 fonts:
 	git clone https://github.com/powerline/fonts.git fonts
-	./powerline-fonts/install.sh
+	./fonts/install.sh
 
 uninstall:
 	@$(foreach file, $(DOTFILES), if [ -L $(HOME)/.$(file) ]; then rm $(HOME)/.$(file); fi; )
