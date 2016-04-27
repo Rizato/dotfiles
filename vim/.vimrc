@@ -4,21 +4,20 @@ Plug 'bling/vim-airline'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'embear/vim-localvimrc'
+Plug 'lervag/vim-latex'
 Plug 'tpope/vim-markdown'
 Plug 'pangloss/vim-javascript'
-Plug 'rust-lang/rust.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'nono/vim-handlebars'
+Plug 'heartsentwined/vim-emblem'
 Plug 'derekwyatt/vim-scala'
 Plug 'jnwhiteh/vim-golang'
-Plug 'heartsentwined/vim-emblem'
-Plug 'kchmck/vim-coffee-script'
-Plug 'lervag/vim-latex'
+Plug 'rust-lang/rust.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bogado/file-line'
 Plug 'Chiel92/vim-autoformat'
 Plug 'cespare/vim-toml'
-Plug 'nono/vim-handlebars'
 Plug 'rhysd/vim-clang-format'
 Plug 'cstrahan/vim-capnp'
 call plug#end()
@@ -27,11 +26,13 @@ syntax on
 filetype plugin indent on
 set cino=N-s
 
-set t_Co=256
-colo wombat256i
-hi TabLine guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
-hi TabLineSel guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
-hi TabLineFill guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+if has("unix")
+    set t_Co=256
+    colo wombat256i
+    hi TabLine guifg=#333 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+    hi TabLineSel guifg=#666 guibg=#222 gui=bold ctermfg=231 ctermbg=235 cterm=bold
+    hi TabLineFill guifg=#999 guibg=#222 gui=none ctermfg=254 ctermbg=238 cterm=none
+endif
 
 set hlsearch
 set incsearch
@@ -98,21 +99,10 @@ nmap <Leader> <Plug>(easymotion-prefix)
 " airline options
 let g:airline_powerline_fonts=1
 
-" ctrlp options, see http://blog.patspam.com/2014/super-fast-ctrlp
-let g:ctrlp_user_command='ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ -g ""'
-let g:ctrlp_match_func={'match' : 'matcher#cmatch' }
-let g:ctrlp_max_files=0
-
-" localvimrc options, sandbox doesn't seem to work
-let g:localvimrc_sandbox=0
+" localvimrc options
 let g:localvimrc_persistent=1
 
+" clang format options
 let g:clang_format#style_options = {
     \ "Standard": "C++11",
     \ "BasedOnStyle": "Webkit",
