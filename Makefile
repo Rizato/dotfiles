@@ -34,5 +34,5 @@ fonts:
 	./fonts/install.sh
 
 uninstall:
-	@$(foreach file, $(DOTFILES), if [ -L $(HOME)/.$(file) ]; then rm $(HOME)/.$(file); fi; )
+	@$(foreach file, $(DOTFILES), stow -v -t $(HOME) -D $(file); )
 
