@@ -20,6 +20,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'cespare/vim-toml'
 Plug 'rhysd/vim-clang-format'
 Plug 'cstrahan/vim-capnp'
+Plug 'tomlion/vim-solidity'
 call plug#end()
 
 syntax on
