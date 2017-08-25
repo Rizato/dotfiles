@@ -83,9 +83,8 @@ autocmd FileType go autocmd BufWritePre <buffer> silent Fmt
 let go_highlight_trailing_whitespace_error=0
 
 " rust options
-let g:formatdef_rustfmt = '"rustfmt"'
-let g:formatters_rust = ['rustfmt']
-"autocmd FileType rust autocmd BufWritePre <buffer> silent :Autoformat
+let g:rustfmt_command="rustup run nightly rustfmt"
+autocmd FileType rust nnoremap <buffer><leader>cf :<C-u>RustFmt<cr>
 
 " latex options
 let g:tex_flavor="latex"
