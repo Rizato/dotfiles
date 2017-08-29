@@ -12,7 +12,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'nono/vim-handlebars'
 Plug 'heartsentwined/vim-emblem'
 Plug 'derekwyatt/vim-scala'
-Plug 'jnwhiteh/vim-golang'
+Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bogado/file-line'
@@ -79,8 +79,7 @@ nnoremap <leader>cc :CoffeeCompile %<cr>
 
 " golang options
 autocmd FileType go setl noet
-autocmd FileType go autocmd BufWritePre <buffer> silent Fmt
-let go_highlight_trailing_whitespace_error=0
+autocmd FileType go autocmd BufWritePre <buffer> silent GoFmt
 
 " rust options
 let g:rustfmt_command="rustup run nightly rustfmt"
