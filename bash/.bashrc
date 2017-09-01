@@ -118,8 +118,8 @@ fi
 
 export PATH=$HOME/.local/bin:$PATH
 
-export NVM_DIR="/home/user/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export PATH=/usr/lib/go-1.8/bin:$HOME/go/bin:$PATH
 export GOPATH=$HOME/go
+export PATH=/usr/lib/go-1.8/bin:$GOPATH/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
