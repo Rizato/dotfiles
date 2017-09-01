@@ -79,7 +79,7 @@ nnoremap <leader>cc :CoffeeCompile %<cr>
 
 " golang options
 autocmd FileType go setl noet
-autocmd FileType go autocmd BufWritePre <buffer> silent GoFmt
+autocmd FileType go autocmd BufWritePre <buffer> silent :GoFmt
 
 " rust options
 let g:rustfmt_command="rustup run nightly rustfmt"
