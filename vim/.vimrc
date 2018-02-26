@@ -12,7 +12,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'nono/vim-handlebars'
 Plug 'heartsentwined/vim-emblem'
 Plug 'derekwyatt/vim-scala'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bogado/file-line'
@@ -21,6 +21,7 @@ Plug 'cespare/vim-toml'
 Plug 'rhysd/vim-clang-format'
 Plug 'cstrahan/vim-capnp'
 Plug 'tomlion/vim-solidity'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 syntax on
@@ -79,7 +80,10 @@ nnoremap <leader>cc :CoffeeCompile %<cr>
 
 " golang options
 autocmd FileType go setl noet
-autocmd FileType go autocmd BufWritePre <buffer> silent GoFmt
+"autocmd FileType go autocmd BufWritePre <buffer> silent GoFmt
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " rust options
 autocmd FileType rust nnoremap <buffer><leader>cf :<C-u>RustFmt<cr>
