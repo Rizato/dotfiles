@@ -82,7 +82,6 @@ autocmd FileType go setl noet
 autocmd FileType go autocmd BufWritePre <buffer> silent GoFmt
 
 " rust options
-let g:rustfmt_command="rustup run nightly rustfmt"
 autocmd FileType rust nnoremap <buffer><leader>cf :<C-u>RustFmt<cr>
 
 " latex options
