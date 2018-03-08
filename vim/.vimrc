@@ -22,6 +22,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'cstrahan/vim-capnp'
 Plug 'tomlion/vim-solidity'
 Plug 'vim-syntastic/syntastic'
+Plug 'tell-k/vim-autopep8'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 syntax on
