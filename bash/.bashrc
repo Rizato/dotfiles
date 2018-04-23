@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Set up xkb options in qubes
+if [[ $DISPLAY ]]; then setxkbmap -option caps:escape; fi
+
 export EDITOR=vim
 export PATH=$HOME/.local/bin:$PATH
 
