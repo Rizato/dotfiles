@@ -22,8 +22,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'cstrahan/vim-capnp'
 Plug 'tomlion/vim-solidity'
 Plug 'vim-syntastic/syntastic'
-Plug 'tell-k/vim-autopep8'
 Plug 'mxw/vim-jsx'
+Plug 'mindriot101/vim-yapf'
 call plug#end()
 
 syntax on
@@ -89,6 +89,13 @@ let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " rust options
 autocmd FileType rust nnoremap <buffer><leader>cf :<C-u>RustFmt<cr>
+let g:syntastic_rust_rustc_exe = 'cargo check'
+let g:syntastic_rust_rustc_fname = ''
+let g:syntastic_rust_rustc_args = '--'
+let g:syntastic_rust_checkers = ['rustc']
+
+" python options
+autocmd FileType python nnoremap <buffer><leader>cf :<C-u>Yapf<cr>
 
 " latex options
 let g:tex_flavor="latex"
