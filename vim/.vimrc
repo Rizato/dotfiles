@@ -13,7 +13,7 @@ Plug 'nono/vim-handlebars'
 Plug 'heartsentwined/vim-emblem'
 Plug 'derekwyatt/vim-scala'
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries' }
-Plug 'rust-lang/rust.vim'
+Plug 'mjkoo/rust.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bogado/file-line'
 Plug 'Chiel92/vim-autoformat'
