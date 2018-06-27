@@ -39,7 +39,7 @@ vim:
 neovim:
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	mkdir -p ${HOME}/.config/nvim && ln -sf ../../.vimrc ${HOME}/.config/nvim
+	mkdir -p ${HOME}/.config/nvim && ln -sf ../../.vimrc ${HOME}/.config/nvim/init.vim
 	# Hack, ignore error about missing colorscheme
 	echo | nvim +PlugInstall +qa!
 	sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
