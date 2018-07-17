@@ -1,29 +1,28 @@
 call plug#begin()
-Plug 'dsolstad/vim-wombat256i'
-Plug 'bling/vim-airline'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
-Plug 'embear/vim-localvimrc'
-Plug 'lervag/vim-latex'
-Plug 'tpope/vim-markdown'
-Plug 'pangloss/vim-javascript'
-Plug 'kchmck/vim-coffee-script'
-Plug 'nono/vim-handlebars'
-Plug 'heartsentwined/vim-emblem'
-Plug 'derekwyatt/vim-scala'
-Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries' }
-Plug 'mjkoo/rust.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'bogado/file-line'
 Plug 'Chiel92/vim-autoformat'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'bling/vim-airline'
+Plug 'bogado/file-line'
 Plug 'cespare/vim-toml'
-Plug 'rhysd/vim-clang-format'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'cstrahan/vim-capnp'
-Plug 'tomlion/vim-solidity'
-Plug 'vim-syntastic/syntastic'
-Plug 'mxw/vim-jsx'
+Plug 'dsolstad/vim-wombat256i'
+Plug 'embear/vim-localvimrc'
+Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries' }
+Plug 'junegunn/fzf'
+Plug 'kien/ctrlp.vim'
+Plug 'lervag/vim-latex'
 Plug 'mindriot101/vim-yapf'
+Plug 'mjkoo/rust.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'rhysd/vim-clang-format'
+Plug 'scrooloose/nerdtree'
+Plug 'tomlion/vim-solidity'
+Plug 'tpope/vim-markdown'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 syntax on
@@ -72,30 +71,40 @@ nnoremap <silent> td :tabclose<cr>
 
 nnoremap <leader>f :Autoformat<cr>
 
+" LanguageClient-Neovim
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls'],
+    \ 'rust': ['rls'],
+    \ 'go': ['go-langserver']}
+
+noremap  ` :call LanguageClient_contextMenu()<CR>
+noremap  H :call LanguageClient_textDocument_hover()<CR>
+noremap  Z :call LanguageClient_textDocument_definition()<CR>
+noremap  R :call LanguageClient_textDocument_rename()<CR>
+noremap  S :call LanugageClient_textDocument_documentSymbol()<CR>
+
 " make needs hard tabs
 autocmd FileType make setl noet
 
 " javascript options
-autocmd FileType html,javascript,coffee,handlebars.html setl ts=2 sts=2 sw=2
-hi link coffeeSpaceError NONE
-nnoremap <leader>cc :CoffeeCompile %<cr>
+autocmd FileType html,javascript setl ts=2 sts=2 sw=2
 
 " golang options
 autocmd FileType go setl noet
-"autocmd FileType go autocmd BufWritePre <buffer> silent GoFmt
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " rust options
-autocmd FileType rust nnoremap <buffer><leader>cf :<C-u>RustFmt<cr>
+autocmd FileType rust nnoremap <buffer><leader>f :<C-u>RustFmt<cr>
 let g:syntastic_rust_rustc_exe = 'cargo check'
 let g:syntastic_rust_rustc_fname = ''
 let g:syntastic_rust_rustc_args = '--'
 let g:syntastic_rust_checkers = ['rustc']
 
 " python options
-autocmd FileType python nnoremap <buffer><leader>cf :<C-u>Yapf<cr>
+autocmd FileType python nnoremap <buffer><leader>f :<C-u>Yapf<cr>
 
 " latex options
 let g:tex_flavor="latex"
@@ -124,7 +133,7 @@ let g:clang_format#style_options = {
     \ "ConstructorInitializerIndentWidth": 2,
     \ "NamespaceIndentation": "None"}
 
-autocmd FileType c,cpp,objc nnoremap <buffer><leader>cf :<C-u>ClangFormat<cr>
+autocmd FileType c,cpp,objc nnoremap <buffer><leader>f :<C-u>ClangFormat<cr>
 
 set tags=./tags;/
 

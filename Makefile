@@ -34,14 +34,14 @@ vim:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	# Hack, ignore error about missing colorscheme
-	echo | vim +PlugInstall +qa!
+	echo | vim +PlugInstall +UpdateRemotePlugins +qa!
 
 neovim:
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	mkdir -p ${HOME}/.config/nvim && ln -sf ../../.vimrc ${HOME}/.config/nvim/init.vim
 	# Hack, ignore error about missing colorscheme
-	echo | nvim +PlugInstall +qa!
+	echo | nvim +PlugInstall +UpdateRemotePlugins +qa!
 	sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 	yes 0 | sudo update-alternatives --config vi
 	sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
