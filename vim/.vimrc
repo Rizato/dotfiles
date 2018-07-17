@@ -1,7 +1,7 @@
 call plug#begin()
+
 Plug 'Chiel92/vim-autoformat'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'bling/vim-airline'
 Plug 'bogado/file-line'
@@ -14,15 +14,24 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'junegunn/fzf'
 Plug 'kien/ctrlp.vim'
 Plug 'lervag/vim-latex'
-Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'rhysd/vim-clang-format'
 Plug 'ruanyl/vim-fixmyjs'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-markdown'
 Plug 'vim-syntastic/syntastic'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 call plug#end()
 
 syntax on
@@ -62,6 +71,9 @@ nnoremap <silent> <C-k> :wincmd k<cr>
 nnoremap <silent> <C-j> :wincmd j<cr>
 nnoremap <silent> <C-h> :wincmd h<cr>
 nnoremap <silent> <C-l> :wincmd l<cr>
+nnoremap <silent> <C-e> :wincmd v<cr>
+nnoremap <silent> <C-q> :wincmd n<cr>
+nnoremap <silent> <C-w> :wincmd q<cr>
 nnoremap <silent> th :tabfirst<cr>
 nnoremap <silent> tj :tabnext<cr>
 nnoremap <silent> tk :tabprev<cr>
@@ -71,6 +83,10 @@ nnoremap <silent> td :tabclose<cr>
 
 nnoremap <leader>f :Autoformat<cr>
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 " LanguageClient-Neovim
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
@@ -78,11 +94,11 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
     \ 'go': ['go-langserver']}
 
-noremap  ` :call LanguageClient_contextMenu()<CR>
-noremap  H :call LanguageClient_textDocument_hover()<CR>
-noremap  Z :call LanguageClient_textDocument_definition()<CR>
-noremap  R :call LanguageClient_textDocument_rename()<CR>
-noremap  S :call LanugageClient_textDocument_documentSymbol()<CR>
+noremap <silent> ` :call LanguageClient_contextMenu()<cr>
+noremap <silent> H :call LanguageClient_textDocument_hover()<cr>
+noremap <silent> Z :call LanguageClient_textDocument_definition()<cr>
+noremap <silent> R :call LanguageClient_textDocument_rename()<cr>
+noremap <silent> S :call LanugageClient_textDocument_documentSymbol()<cr>
 
 " make needs hard tabs
 autocmd FileType make setl noet
