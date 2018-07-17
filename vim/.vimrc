@@ -7,18 +7,18 @@ Plug 'bling/vim-airline'
 Plug 'bogado/file-line'
 Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'cstrahan/vim-capnp'
 Plug 'dsolstad/vim-wombat256i'
 Plug 'embear/vim-localvimrc'
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries' }
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'junegunn/fzf'
 Plug 'kien/ctrlp.vim'
 Plug 'lervag/vim-latex'
-Plug 'mindriot101/vim-yapf'
-Plug 'mjkoo/rust.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'rhysd/vim-clang-format'
+Plug 'ruanyl/vim-fixmyjs'
 Plug 'scrooloose/nerdtree'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-markdown'
@@ -89,6 +89,7 @@ autocmd FileType make setl noet
 
 " javascript options
 autocmd FileType html,javascript setl ts=2 sts=2 sw=2
+autocmd FileType javascript nnoremap <buffer><leader>f :<C-u>Fixmyjs<cr>
 
 " golang options
 autocmd FileType go setl noet
@@ -104,7 +105,7 @@ let g:syntastic_rust_rustc_args = '--'
 let g:syntastic_rust_checkers = ['rustc']
 
 " python options
-autocmd FileType python nnoremap <buffer><leader>f :<C-u>Yapf<cr>
+autocmd FileType python nnoremap <buffer><leader>f :<C-u>YAPF<cr>
 
 " latex options
 let g:tex_flavor="latex"

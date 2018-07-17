@@ -134,3 +134,7 @@ if [ -f '/home/user/google-cloud-sdk/path.bash.inc' ]; then source '/home/user/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/user/google-cloud-sdk/completion.bash.inc' ]; then source '/home/user/google-cloud-sdk/completion.bash.inc'; fi
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /home/user/Projects/polyswarm-gui/node_modules/tabtab/.completions/electron-forge.bash ] && . /home/user/Projects/polyswarm-gui/node_modules/tabtab/.completions/electron-forge.bash
