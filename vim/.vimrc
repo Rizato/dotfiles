@@ -11,6 +11,7 @@ Plug 'dsolstad/vim-wombat256i'
 Plug 'embear/vim-localvimrc'
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries' }
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf'
 Plug 'kien/ctrlp.vim'
 Plug 'lervag/vim-latex'
@@ -57,7 +58,7 @@ set shiftwidth=4
 
 set textwidth=80
 set formatoptions-=t
-autocmd FileType markdown,tex,text setl spell nowrap fo+=t
+autocmd FileType markdown,tex,text setl spell nowrap
 
 set wildmenu
 set wildmode=list:longest
@@ -122,6 +123,7 @@ let g:syntastic_rust_checkers = ['rustc']
 
 " python options
 autocmd FileType python nnoremap <buffer><leader>f :<C-u>YAPF<cr>
+let g:syntastic_python_checkers = ['flake8']
 
 " latex options
 let g:tex_flavor="latex"
