@@ -11,7 +11,8 @@ help:
 	@echo 'Run make install to install symlinks into your home directory.'
 
 dependencies:
-	sudo add-apt-repository ppa:neovim-ppa/stable
+	sudo add-apt-repository ppa:neovim-ppa/unstable
+	sudo add-apt-repository ppa:hnakamur/tmux
 	sudo apt-get update && sudo apt-get install \
 		curl \
 		git \
@@ -22,6 +23,7 @@ dependencies:
 		python3-pip \
 		silversearcher-ag \
 		stow \
+		tmux \
 		vim
 
 install: dotfiles vim neovim fonts
