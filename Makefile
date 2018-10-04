@@ -4,6 +4,7 @@ endif
 
 IGNORE = . .git fonts
 DOTFILES := $(filter-out $(IGNORE), $(shell find . -maxdepth 1 -type d -exec basename {} \;))
+RELEASE := $(shell lsb_release -cs)
 
 .PHONY: help dependencies install install dotfiles vim neovim uninstall
 
@@ -12,7 +13,9 @@ help:
 
 dependencies:
 	sudo add-apt-repository ppa:neovim-ppa/unstable
+ifeq ($(RELEASE),xenial)
 	sudo add-apt-repository ppa:hnakamur/tmux
+endif
 	sudo apt-get update && sudo apt-get install \
 		curl \
 		git \
