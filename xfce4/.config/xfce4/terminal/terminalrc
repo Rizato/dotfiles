@@ -1,8 +1,7 @@
 [Configuration]
-ColorForeground=#b7b7b7
-ColorBackground=#131926
-ColorCursor=#0f4999
-ColorSelection=#163b59
+ColorForeground=#f3f3f3f3f3f3
+ColorBackground=#000000000000
+ColorSelect=#f3f3f3f3
 ColorBold=#ffffff
 ColorBoldUseDefault=FALSE
 ColorPalette=#000000;#aa0000;#44aa44;#aa5500;#0039aa;#aa22aa;#1a92aa;#aaaaaa;#777777;#ff8787;#4ce64c;#ded82c;#295fcc;#cc58cc;#4ccce6;#ffffff
@@ -34,5 +33,8 @@ MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingLines=10000
-TabActivityColor=#0f4999
+TabActivityColor=#0f0f49499999
+ColorSelectionUseDefault=FALSE
+ColorSelectionBackground=#f3f3f3f3f3f3
+ColorSelection=#000000000000
 
