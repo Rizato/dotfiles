@@ -129,12 +129,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/user/google-cloud-sdk/path.bash.inc' ]; then source '/home/user/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/user/google-cloud-sdk/completion.bash.inc' ]; then source '/home/user/google-cloud-sdk/completion.bash.inc'; fi
-
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f /home/user/Projects/polyswarm-gui/node_modules/tabtab/.completions/electron-forge.bash ] && . /home/user/Projects/polyswarm-gui/node_modules/tabtab/.completions/electron-forge.bash
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mjkoo/.local/google-cloud-sdk/path.bash.inc' ]; then . '/home/mjkoo/.local/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mjkoo/.local/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mjkoo/.local/google-cloud-sdk/completion.bash.inc'; fi
