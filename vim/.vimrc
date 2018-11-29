@@ -14,6 +14,7 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf'
 Plug 'kien/ctrlp.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vim-latex'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -104,6 +105,9 @@ noremap <silent> S :call LanugageClient_textDocument_documentSymbol()<cr>
 " make needs hard tabs
 autocmd FileType make setl noet
 
+" yaml options
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2
+
 " javascript options
 autocmd FileType html,javascript setl ts=2 sts=2 sw=2
 autocmd FileType javascript nnoremap <buffer><leader>f :<C-u>Fixmyjs<cr>
@@ -116,14 +120,17 @@ let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " rust options
 autocmd FileType rust nnoremap <buffer><leader>f :<C-u>RustFmt<cr>
-let g:syntastic_rust_rustc_exe = 'cargo check'
-let g:syntastic_rust_rustc_fname = ''
-let g:syntastic_rust_rustc_args = '--'
-let g:syntastic_rust_checkers = ['rustc']
+"let g:syntastic_rust_rustc_exe = 'cargo check'
+"let g:syntastic_rust_rustc_fname = ''
+"let g:syntastic_rust_rustc_args = '--'
+"let g:syntastic_rust_checkers = ['rustc']
 
 " python options
 autocmd FileType python nnoremap <buffer><leader>f :<C-u>YAPF<cr>
 let g:syntastic_python_checkers = ['flake8']
+
+" solidity options
+let g:syntastic_solidity_checkers = ['solium']
 
 " latex options
 let g:tex_flavor="latex"
