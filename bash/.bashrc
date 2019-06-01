@@ -122,12 +122,21 @@ if [[ $DISPLAY ]]; then setxkbmap -option caps:escape; fi
 export EDITOR=vim
 export PATH=$HOME/.local/bin:$PATH
 
+export PYENV_VERSION=3.7.3
+export PATH="/home/mjkoo/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 export GOPATH=$HOME/go
 export PATH=/usr/lib/go-1.8/bin:$GOPATH/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
@@ -138,3 +147,8 @@ if [ -f '/home/mjkoo/.local/google-cloud-sdk/path.bash.inc' ]; then . '/home/mjk
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mjkoo/.local/google-cloud-sdk/completion.bash.inc' ]; then . '/home/mjkoo/.local/google-cloud-sdk/completion.bash.inc'; fi
+
+complete -C /home/mjkoo/.local/bin/mc mc
+
+# added by travis gem
+[ -f /home/mjkoo/.travis/travis.sh ] && source /home/mjkoo/.travis/travis.sh

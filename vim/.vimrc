@@ -2,7 +2,7 @@ call plug#begin()
 
 Plug 'Chiel92/vim-autoformat'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+"Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'bling/vim-airline'
 Plug 'bogado/file-line'
 Plug 'cespare/vim-toml'
@@ -10,7 +10,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dsolstad/vim-wombat256i'
 Plug 'embear/vim-localvimrc'
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries' }
-Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf'
 Plug 'kien/ctrlp.vim'
@@ -18,6 +17,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'lervag/vim-latex'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'python/black'
 Plug 'rhysd/vim-clang-format'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'rust-lang/rust.vim'
@@ -33,6 +34,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+Plug 'deoplete-plugins/deoplete-jedi'
 
 call plug#end()
 
@@ -109,7 +112,7 @@ autocmd FileType make setl noet
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 
 " javascript options
-autocmd FileType html,javascript setl ts=2 sts=2 sw=2
+autocmd FileType html,javascript,typescript setl ts=2 sts=2 sw=2
 autocmd FileType javascript nnoremap <buffer><leader>f :<C-u>Fixmyjs<cr>
 
 " golang options
@@ -120,13 +123,13 @@ let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " rust options
 autocmd FileType rust nnoremap <buffer><leader>f :<C-u>RustFmt<cr>
-"let g:syntastic_rust_rustc_exe = 'cargo check'
-"let g:syntastic_rust_rustc_fname = ''
-"let g:syntastic_rust_rustc_args = '--'
-"let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_rust_rustc_exe = 'cargo check'
+let g:syntastic_rust_rustc_fname = ''
+let g:syntastic_rust_rustc_args = '--'
+let g:syntastic_rust_checkers = ['rustc']
 
 " python options
-autocmd FileType python nnoremap <buffer><leader>f :<C-u>YAPF<cr>
+autocmd FileType python nnoremap <buffer><leader>f :<C-u>Black<cr>
 let g:syntastic_python_checkers = ['flake8']
 
 " solidity options
