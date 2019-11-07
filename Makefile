@@ -56,10 +56,6 @@ neovim:
 	yes 0 | sudo update-alternatives --config editor
 	echo
 
-fonts:
-	git clone https://github.com/powerline/fonts.git
-	./fonts/install.sh
-
 uninstall:
 	@$(foreach file, $(DOTFILES), stow -v -t $(HOME) -D $(file); )
 

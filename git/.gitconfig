@@ -1,5 +1,9 @@
 [user]
-	email = mjkoo90@gmail.com
-	name = Maxwell Koo
+	email = rldifts@gmail.com
+	name = Robert Lathrop
 [push]
 	default = simple
+
+[alias]
+    adog = log --all --decorate --oneline --graph
+    unstage = reset --soft HEAD^

@@ -1,4 +1,4 @@
-# mjkoo's dotfiles
+# rizato's dotfiles
 
 Configuration files, mostly for easy personal access.
 
